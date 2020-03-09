@@ -2,33 +2,64 @@
   <b-col
     md="3"
     lg="2"
-    id="sidenav"
     :class="`${backgroundClass} d-none d-md-block text-center`"
   >
     <b-row>
-      <b-col id="sidenav-items" class="position-fixed" md="3" lg="2">
+      <b-col
+        id="sidenav"
+        class="position-fixed pt-2 overflow-auto h-100"
+        md="3"
+        lg="2"
+      >
         <!-- User profile card (avatar, name, settings). -->
-        <b-card id="sidenav-user" title="Streamava" />
+        <b-card id="sidenav-user">
+          <b-card-img
+            class="rounded-circle w-75"
+            src="https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png"
+          />
+          <div>
+            Jared Hanson
+          </div>
+          <div>Sign Out</div>
+        </b-card>
         <!-- Sidenav navigation items. -->
-        <b-row
-          align-h="center"
-          id="sidenav-item"
-          :key="idx"
-          v-for="(route, idx) in navRoutes"
-        >
-          <router-link :class="`${textClass}`" :to="route.path">{{
-            route.name
-          }}</router-link>
-        </b-row>
+        <b-col fluid id="sidenav-items">
+          <b-row
+            align-h="center"
+            :key="idx"
+            v-for="(route, idx) in navRoutes"
+            :class="{
+              lighten: hovered == idx || router.currentRoute.path == route.path
+            }"
+            @mouseover="hovered = idx"
+            @mouseout="hovered = -1"
+          >
+            <router-link
+              id="sidenav-link"
+              :class="`${textClass} rounded py-3 w-100 border-bottom`"
+              :to="route.path"
+              >{{ route.name }}</router-link
+            >
+          </b-row>
+        </b-col>
       </b-col>
     </b-row>
   </b-col>
 </template>
 
 <script>
+import GearImg from '@/assets/settings.png'
 import { routes } from '@/router'
 export default {
   name: 'TheNavbar',
+  data() {
+    console.log(this.$router.currentRoute.path)
+    return {
+      settingsImg: GearImg,
+      hovered: -1,
+      router: this.$router
+    }
+  },
   props: {
     // variant, variant value for background
     variant: {
@@ -57,4 +88,8 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+#sidenav-link:hover {
+  // lighten the background
+}
+</style>

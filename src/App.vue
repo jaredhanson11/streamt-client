@@ -28,4 +28,8 @@ export default {
   min-height: 100vh;
   max-height: 100vh;
 }
+
+.lighten {
+  background: rgba(255, 255, 255, 0.25);
+}
 </style>

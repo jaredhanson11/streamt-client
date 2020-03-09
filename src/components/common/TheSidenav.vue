@@ -48,14 +48,12 @@
 </template>
 
 <script>
-import GearImg from '@/assets/settings.png'
 import { routes } from '@/router'
 export default {
   name: 'TheNavbar',
   data() {
     console.log(this.$router.currentRoute.path)
     return {
-      settingsImg: GearImg,
       hovered: -1,
       router: this.$router
     }

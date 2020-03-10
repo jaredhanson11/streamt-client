@@ -52,7 +52,6 @@ import { routes } from '@/router'
 export default {
   name: 'TheNavbar',
   data() {
-    console.log(this.$router.currentRoute.path)
     return {
       hovered: -1,
       router: this.$router

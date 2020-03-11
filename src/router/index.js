@@ -31,6 +31,12 @@ export const routes = [
     component: () =>
       import(/* webpackChunkName: "highlights" */ '../views/Highlights.vue'),
     navItem: true
+  },
+  {
+    path: '/highlight',
+    name: 'Highlight',
+    component: () =>
+      import(/* webpackChunkName: "highlight" */ '../views/Highlight.vue')
   }
 ]
 

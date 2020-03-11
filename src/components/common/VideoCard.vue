@@ -1,8 +1,10 @@
 <template>
   <div class="pb-2 px-2" id="video-card">
-    <b-card no-body :footer="title">
-      <b-card-img :src="thumbnail" />
-    </b-card>
+    <a :href="href">
+      <b-card no-body :footer="title">
+        <b-card-img :src="thumbnail" />
+      </b-card>
+    </a>
   </div>
 </template>
 
@@ -14,8 +16,16 @@ export default {
       type: String,
       required: true
     },
+    id: {
+      type: Number,
+      required: true
+    },
     timestamp: {
       type: Number,
+      required: true
+    },
+    href: {
+      type: String,
       required: true
     },
     thumbnail: {

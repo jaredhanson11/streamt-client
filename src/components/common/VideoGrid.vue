@@ -1,6 +1,12 @@
 <template>
   <div class="w-100 row">
-    <VideoCard :title="video.title" v-for="(video, idx) in videos" :key="idx" class="w-25" />
+    <VideoCard
+      v-for="(video, idx) in videos"
+      :key="idx"
+      class="w-25"
+      :title="video.title"
+      :href="video.href"
+    />
   </div>
 </template>
 
@@ -18,7 +24,6 @@ export default {
   },
   computed: {
     rows() {
-      console.log(this.videos.length)
       var rows = []
       const n_vids = this.videos.length
       const n_rows = n_vids / ROW_SIZE

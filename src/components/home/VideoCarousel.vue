@@ -1,6 +1,11 @@
 <template>
   <b-row class="w-100 overflow-auto flex-nowrap">
-    <VideoCard v-for="(stream, idx) in videos" :key="idx" :title="stream.title" class="w-25" />
+    <VideoCard
+      v-for="(stream, idx) in videos"
+      :key="idx"
+      :title="stream.title"
+      class="w-25"
+    />
   </b-row>
 </template>
 

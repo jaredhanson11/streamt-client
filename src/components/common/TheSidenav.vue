@@ -17,10 +17,15 @@
             class="rounded-circle w-75"
             src="https://cdn.iconscout.com/icon/free/png-256/avatar-380-456332.png"
           />
-          <div>
-            Jared Hanson
+          <div v-if="user">
+            <div>
+              {{ user }}
+            </div>
+            <b-link @click="signOut">Sign Out</b-link>
           </div>
-          <div>Sign Out</div>
+          <div v-else>
+            <router-link :to="loginRoute">Sign In</router-link>
+          </div>
         </b-card>
         <!-- Sidenav navigation items. -->
         <b-col fluid id="sidenav-items">
@@ -48,7 +53,7 @@
 </template>
 
 <script>
-import { routes } from '@/router'
+import { routes, getRoute } from '@/router'
 export default {
   name: 'TheNavbar',
   data() {
@@ -80,13 +85,29 @@ export default {
     },
     textClass() {
       return `text-${this.textVariant}`
+    },
+    user() {
+      const user = this.$store.getters.user
+      if (Object.keys(user).length) {
+        return user.first_name + ' ' + user.last_name
+      } else {
+        return ''
+      }
+    },
+    loginRoute() {
+      return getRoute('login')
+    },
+    homeRoute() {
+      return getRoute('home')
+    }
+  },
+  methods: {
+    signOut() {
+      console.log('hello')
+      this.$store.dispatch('signoutUser')
     }
   }
 }
 </script>
 
-<style scoped lang="scss">
-#sidenav-link:hover {
-  // lighten the background
-}
-</style>
+<style scoped lang="scss"></style>

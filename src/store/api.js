@@ -32,7 +32,9 @@ axios.interceptors.response.use(
   },
   error => {
     console.log('Error response:', error)
-    if (error.response.status == 401) {
+    if (!error.response) {
+      console.log('NETWORK ERROR')
+    } else if (error.response.status == 401) {
       const loginRoute = routes.filter(
         item => item.name.toLowerCase() == 'login'
       )[0]

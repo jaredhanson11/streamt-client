@@ -21,6 +21,9 @@ export default {
       }
       return [DEFAULT_CARD]
     }
+  },
+  mounted() {
+    this.$store.dispatch('getHome')
   }
 }
 </script>

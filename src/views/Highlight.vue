@@ -10,6 +10,9 @@ export default {
   name: 'Highlight',
   components: {
     StreamPlayer
+  },
+  mounted() {
+    this.$store.dispatch('getHome')
   }
 }
 </script>

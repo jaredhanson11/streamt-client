@@ -8,12 +8,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    user: {
-      first_name: null,
-      last_name: null,
-      id: null,
-      email: null
-    },
+    user: {},
     streams: {},
     clips: {},
     highlights: {},
@@ -24,10 +19,7 @@ export default new Vuex.Store({
   },
   mutations: {
     setUser(state, userJson) {
-      Vue.set(state.user, 'first_name', userJson.first_name)
-      Vue.set(state.user, 'last_name', userJson.last_name)
-      Vue.set(state.user, 'id', userJson.id)
-      Vue.set(state.user, 'email', userJson.email)
+      Vue.set(state, 'user', userJson)
     },
     setStreams(state, streamsList) {
       var streams = {}
@@ -107,6 +99,12 @@ export default new Vuex.Store({
           store.commit('setApiLoading', false)
         })
       store.commit('setApiLoading', true)
+    },
+    signoutUser(store) {
+      API.axios.delete(API.apiRoutes.LOGIN()).then(response => {
+        store.commit('setUser', {})
+        router.push(getRoute('login'))
+      })
     }
   },
   getters: {

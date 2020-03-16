@@ -33,6 +33,9 @@ export default {
         { title: 'Testing 4', timestamp: 5 }
       ]
     }
+  },
+  mounted() {
+    this.$store.dispatch('getHome')
   }
 }
 </script>

@@ -12,6 +12,20 @@ export const routes = [
     navItem: true
   },
   {
+    path: '/login',
+    name: 'Login',
+    component: () =>
+      import(/* webpackChunkName: "streams" */ '../views/Login.vue'),
+    navItem: false
+  },
+  {
+    path: '/signup',
+    name: 'Signup',
+    component: () =>
+      import(/* webpackChunkName: "streams" */ '../views/Signup.vue'),
+    navItem: false
+  },
+  {
     path: '/streams',
     name: 'Streams',
     component: () =>
@@ -39,6 +53,15 @@ export const routes = [
       import(/* webpackChunkName: "highlight" */ '../views/Highlight.vue')
   }
 ]
+
+export function getRoute(name) {
+  const route = routes.filter(
+    item => item.name.toLowerCase() == name.toLowerCase()
+  )[0]
+  if (route) {
+    return route.path
+  }
+}
 
 const router = new VueRouter({
   mode: 'history',

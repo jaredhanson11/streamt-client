@@ -22,11 +22,11 @@ export default {
     },
     timestamp: {
       type: Number,
-      required: true
+      required: false
     },
     href: {
       type: String,
-      required: true
+      required: false
     },
     thumbnail: {
       type: String,

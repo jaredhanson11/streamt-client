@@ -110,16 +110,16 @@ export default new Vuex.Store({
     }
   },
   getters: {
-    getUser(state) {
+    user(state) {
       return state.user
     },
-    getStreams(state) {
+    streams(state) {
       return state.streams
     },
-    getClips(state) {
+    clips(state) {
       return state.clips
     },
-    getHighlights(state) {
+    highlights(state) {
       return state.highlights
     }
   }

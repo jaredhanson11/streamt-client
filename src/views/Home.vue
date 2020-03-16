@@ -20,18 +20,31 @@
 
 <script>
 import VideoCarousel from '@/components/home/VideoCarousel.vue'
+const DEFAULT_CARD = {
+  title: 'No videos added yet',
+  id: 0
+}
 export default {
   name: 'Home',
   components: { VideoCarousel },
-  data() {
-    return {
-      streams: [
-        { title: 'Testing 1', timestamp: 1 },
-        { title: 'Testing 2', timestamp: 3 },
-        { title: 'Testing 3', timestamp: 4 },
-        { title: 'Testing 3', timestamp: 4 },
-        { title: 'Testing 4', timestamp: 5 }
-      ]
+  computed: {
+    streams() {
+      if (Object.values(this.$store.getters.streams).length) {
+        return Object.values(this.$store.getters.streams)
+      }
+      return [DEFAULT_CARD]
+    },
+    clips() {
+      if (Object.values(this.$store.getters.clips).length) {
+        return Object.values(this.$store.getters.clips)
+      }
+      return [DEFAULT_CARD]
+    },
+    highlights() {
+      if (Object.values(this.$store.getters.highlights).length) {
+        return Object.values(this.$store.getters.highlights)
+      }
+      return [DEFAULT_CARD]
     }
   },
   mounted() {

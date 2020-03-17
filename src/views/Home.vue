@@ -21,37 +21,17 @@
 <script>
 import VideoCarousel from '@/components/home/VideoCarousel.vue'
 import { getRoute } from '@/router'
-const DEFAULT_CARD = {
-  title: 'No videos added yet',
-  id: 0
-}
+import VideoCardMixin from '@/mixins/VideoCardMixin.js'
 export default {
   name: 'Home',
   components: { VideoCarousel },
+  mixins: [VideoCardMixin],
   computed: {
-    streams() {
-      if (Object.values(this.$store.getters.streams).length) {
-        return Object.values(this.$store.getters.streams)
-      }
-      return [DEFAULT_CARD]
-    },
     streamsRoute() {
       return getRoute('streams')
     },
-    clips() {
-      if (Object.values(this.$store.getters.clips).length) {
-        return Object.values(this.$store.getters.clips)
-      }
-      return [DEFAULT_CARD]
-    },
     clipsRoute() {
       return getRoute('clips')
-    },
-    highlights() {
-      if (Object.values(this.$store.getters.highlights).length) {
-        return Object.values(this.$store.getters.highlights)
-      }
-      return [DEFAULT_CARD]
     },
     highlightsRoute() {
       return getRoute('highlights')

@@ -103,7 +103,6 @@ export default {
   },
   methods: {
     signOut() {
-      console.log('hello')
       this.$store.dispatch('signoutUser')
     }
   }

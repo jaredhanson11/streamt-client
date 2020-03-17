@@ -4,8 +4,9 @@
       v-for="(video, idx) in videos"
       :key="idx"
       class="w-25"
-      :title="video.title"
+      :name="video.name"
       :href="video.href"
+      :id="video.id"
     />
   </div>
 </template>

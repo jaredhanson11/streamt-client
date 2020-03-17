@@ -1,27 +1,17 @@
 <template>
   <div id="highlights">
     <h1>Highlights</h1>
-    <VideoGrid :videos="videos" hrefTemplate="/hightlights/{id}" />
+    <VideoGrid :videos="highlights" />
   </div>
 </template>
 
 <script>
 import VideoGrid from '@/components/common/VideoGrid.vue'
-const DEFAULT_CARD = {
-  title: 'No highlights created yet',
-  id: 0
-}
+import VideoCardMixin from '@/mixins/VideoCardMixin.js'
 export default {
   name: 'Highlights',
   components: { VideoGrid },
-  computed: {
-    videos() {
-      if (Object.values(this.$store.getters.highlights).length) {
-        return Object.values(this.$store.getters.highlights)
-      }
-      return [DEFAULT_CARD]
-    }
-  },
+  mixins: [VideoCardMixin],
   mounted() {
     this.$store.dispatch('getHome')
   }

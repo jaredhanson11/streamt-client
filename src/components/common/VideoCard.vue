@@ -1,7 +1,7 @@
 <template>
   <div class="pb-2 px-2" id="video-card">
     <a :href="href">
-      <b-card no-body :footer="title">
+      <b-card no-body :footer="name">
         <b-card-img :src="thumbnail" />
       </b-card>
     </a>
@@ -12,7 +12,7 @@
 export default {
   name: 'VideoCard',
   props: {
-    title: {
+    name: {
       type: String,
       required: true
     },

@@ -1,9 +1,11 @@
 <template>
   <b-row class="w-100 overflow-auto flex-nowrap">
     <VideoCard
-      v-for="(stream, idx) in videoCards"
+      v-for="(video, idx) in videos"
       :key="idx"
-      :title="stream.title"
+      :name="video.name"
+      :href="video.href"
+      :id="video.id"
       class="w-25"
     />
   </b-row>
@@ -18,19 +20,6 @@ export default {
     videos: {
       type: Array,
       required: true
-    }
-  },
-  computed: {
-    videoCards() {
-      if (this.videos) {
-        return this.videos
-      } else {
-        return [
-          {
-            title: 'You have no videos!'
-          }
-        ]
-      }
     }
   }
 }

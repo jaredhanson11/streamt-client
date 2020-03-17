@@ -23,9 +23,9 @@ export default new Vuex.Store({
     },
     setStreams(state, streamsList) {
       var streams = {}
-      for (stream in streamsList) {
+      streamsList.forEach(stream => {
         streams[stream.id] = stream
-      }
+      })
       Vue.set(state, 'streams', streams)
     },
     setStream(state, stream) {
@@ -33,9 +33,9 @@ export default new Vuex.Store({
     },
     setClips(state, clipsList) {
       var clips = {}
-      for (clip in clipsList) {
+      clipsList.forEach(clip => {
         clips[clip.id] = clip
-      }
+      })
       Vue.set(state, 'clips', clips)
     },
     setClip(state, clip) {
@@ -43,9 +43,9 @@ export default new Vuex.Store({
     },
     setHighlights(state, highlightsList) {
       var highlights = {}
-      for (highlight in highlightsList) {
+      highlightsList.forEach(highlight => {
         highlights[highlight.id] = highlight
-      }
+      })
       Vue.set(state, 'highlights', highlights)
     },
     setHighlight(state, highlight) {

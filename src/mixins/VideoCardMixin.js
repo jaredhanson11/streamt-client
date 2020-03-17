@@ -13,16 +13,16 @@ export default {
   computed: {
     highlights() {
       if (Object.values(this.$store.getters.highlights).length) {
-        return Object.values(this.$store.getters.streams).map(item => {
-          return { ...item, href: this.getResourceUrl('highlights', item.id) }
+        return Object.values(this.$store.getters.highlights).map(item => {
+          return { ...item, href: this.getResourceUrl('highlight', item.id) }
         })
       }
       return [DEFAULT_CARD]
     },
     clips() {
       if (Object.values(this.$store.getters.clips).length) {
-        return Object.values(this.$store.getters.streams).map(item => {
-          return { ...item, href: this.getResourceUrl('clips', item.id) }
+        return Object.values(this.$store.getters.clips).map(item => {
+          return { ...item, href: this.getResourceUrl('clip', item.id) }
         })
       }
       return [DEFAULT_CARD]

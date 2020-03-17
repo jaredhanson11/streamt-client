@@ -1,8 +1,11 @@
 <template>
   <div class="pb-2 px-2" id="video-card">
     <a :href="href">
-      <b-card no-body :footer="name">
+      <b-card no-body>
         <b-card-img :src="thumbnail" />
+        <b-card-footer v-b-tooltip.hover :title="name" id="card-footer">
+          {{ name }}
+        </b-card-footer>
       </b-card>
     </a>
   </div>
@@ -41,5 +44,10 @@ export default {
 <style lang="scss" scoped>
 #video-card {
   flex: 0 0 auto;
+}
+#card-footer {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 </style>

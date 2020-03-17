@@ -9,12 +9,12 @@
       <h2>Clips</h2>
       <router-link :to="clipsRoute">See all</router-link>
     </span>
-    <VideoCarousel :videos="streams" />
+    <VideoCarousel :videos="clips" />
     <span id="section-header">
       <h2>Highlights</h2>
       <router-link :to="highlightsRoute">See all</router-link>
     </span>
-    <VideoCarousel :videos="streams" />
+    <VideoCarousel :videos="highlights" />
   </div>
 </template>
 
